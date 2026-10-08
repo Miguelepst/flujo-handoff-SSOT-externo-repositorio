@@ -4,8 +4,8 @@
 
 ## CONTEXTO
 Proyecto de práctica para dominar el flujo "handoff con SSOT externo".
-App Android mínima (Kotlin + Jetpack Compose) tratada como si fuera un
-producto profesional. Repo: flujo-handoff-SSOT-externo-repositorio.
+App web mínima (HTML + JavaScript) tratada como si fuera un producto
+profesional. Repo: https://github.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio
 Este archivo es el SSOT del proyecto.
 
 ## OBJETIVO ACTUAL
@@ -15,13 +15,15 @@ Pieza 1: pantalla que muestra "Hola Mundo".
 Repositorio creado y vacío. Aún no hay código.
 
 ## DECISIONES VIGENTES
-- Kotlin + Jetpack Compose.
+- HTML + JavaScript puro, sin frameworks ni herramientas de build.
+- (Cambio) Se descartó Kotlin/Android Studio: el equipo tiene 4 GB de RAM.
 - SSOT en docs/HANDOFF.md (Opción A); EMA queda fuera de la práctica.
 - Una pieza por rama (feat/pieza-N-...), merge a main al terminar.
 - Commits tipo Conventional Commits (feat:, docs:, chore:).
 - Un chat nuevo por pieza.
 
 ## RESTRICCIONES
+- Equipo de 4 GB de RAM: nada de IDEs pesados ni emuladores.
 - Plan gratuito de Claude: sin RAG, evitar chats largos.
 - Mantener este archivo en una página.
 
@@ -29,10 +31,10 @@ Repositorio creado y vacío. Aún no hay código.
 - Ninguna.
 
 ## PLAN
-1. Pieza 1: "Hola Mundo".
+1. Pieza 1: index.html con "Hola Mundo".
 2. Pieza 2: botón que cambia el texto.
 3. Pieza 3: contador de clics.
 
 ## SIGUIENTE ACCIÓN
-Crear la rama feat/pieza-1-hola-mundo y generar el proyecto base con
-la pantalla "Hola Mundo".
+Crear la rama feat/pieza-1-hola-mundo y generar index.html en la raíz
+del repo con el "Hola Mundo".
