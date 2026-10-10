@@ -1,6 +1,6 @@
 # HANDOFF — Flujo de handoff con SSOT externo (fuente de verdad: este archivo, no el chat)
 
-Actualizado: 2026-10-09 15:49 (UTC-5) · Rev 1. Comparar con `git log --oneline -3`,
+Actualizado: 2026-10-09 21:15 (UTC-5) · Rev 2. Comparar con `git log --oneline -3`,
 `git status -sb` y `git rev-parse --short main`. Si no coincide, preguntar antes de actuar.
 
 ## CONTEXTO
@@ -8,6 +8,7 @@ Proyecto en dos capas. (1) Experimento de referencia: app web mínima HTML + JS
 puro para practicar el flujo handoff con SSOT en Git. Repo:
 https://github.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio
 URL raw HANDOFF: https://raw.githubusercontent.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio/main/docs/HANDOFF.md
+URL raw METODO: https://raw.githubusercontent.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio/main/docs/METODO.md
 (2) Terminado el experimento, este proyecto será el consejero del método: una
 duda por chat, con su aprendizaje incorporado al estado persistente.
 Meta de fondo: aplicar el método a proyectos largos, primero
@@ -18,7 +19,7 @@ Terminar el experimento de referencia (piezas 2 y 3) y luego la Fase B.
 No diseñar todavía el método definitivo.
 
 ## ESTADO
-- Pieza 1 (index.html "Hola Mundo"): completada en la rama feat/pieza-1-hola-mundo; este archivo viaja en esa rama y, al fusionar, queda en main.
+- Pieza 1 (index.html "Hola Mundo"): completada y fusionada en main (merge f5d2b62).
 - Piezas 2 y 3: pendientes.
 - Observado en práctica: lectura del HANDOFF desde Context y desde URL raw;
   un chat nuevo detectó y corrigió su propio error; la IA eliminó líneas del
@@ -49,7 +50,6 @@ No diseñar todavía el método definitivo.
 - No hay medida fiable del peso del chat: no inventar umbrales.
 
 ## DEUDAS / PENDIENTES
-- Destilar a docs/METODO.md la evaluación crítica (reglas, errores, límites, debilidades).
 - Definir señales de alerta de chat pesado, a partir de casos observados.
 - Registro de incidencias del método (crearlo al tener 3 o más).
 - Verificar límites de Context y del lector de URL raw en este plan.
@@ -57,7 +57,7 @@ No diseñar todavía el método definitivo.
 ## PLAN
 1. Pieza 2 (botón) y pieza 3 (contador), cada una en un chat nuevo.
 2. Fase B (pieza 4).
-3. Primera consulta al especialista: destilar METODO.md.
+3. Primera consulta al especialista, con una duda real surgida de las piezas.
 4. Decidir si la protección de main se practica aquí antes de configurarla en
    el proyecto real (es recuperable, por lo que es recomendable pero opcional).
 
