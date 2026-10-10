@@ -1,7 +1,6 @@
 # HANDOFF — Flujo de handoff con SSOT externo (fuente de verdad: este archivo, no el chat)
 
-Actualizado: 2026-10-09 21:15 (UTC-5) · Rev 2. Comparar con `git log --oneline -3`,
-`git status -sb` y `git rev-parse --short main`. Si no coincide, preguntar antes de actuar.
+Actualizado: 2026-10-09 00:30 (UTC-5) · Rev 3. Comprobación de arranque: Instructions y METODO.md P-02.
 
 ## CONTEXTO
 Proyecto en dos capas. (1) Experimento de referencia: app web mínima HTML + JS
@@ -21,14 +20,10 @@ No diseñar todavía el método definitivo.
 ## ESTADO
 - Pieza 1 (index.html "Hola Mundo"): completada y fusionada en main (merge f5d2b62).
 - Piezas 2 y 3: pendientes.
-- Observado en práctica: lectura del HANDOFF desde Context y desde URL raw;
-  un chat nuevo detectó y corrigió su propio error; la IA eliminó líneas del
-  usuario al regenerar el HANDOFF (divergencia real).
+- Evidencia observada, hipótesis (H-01) y práctica P-02 en evaluación: ver docs/METODO.md.
 - Proyecto real (complete-android-roadmap-repositorio): migrado al método;
   su HANDOFF Rev 1 está commiteado en local y el chat nuevo validó la
   lectura y la Base. El push de ci-prueba estaba propuesto; no consta aquí.
-- Hipótesis en evaluación, no demostrada: un proceso largo se desacopla de
-  un chat largo. Hay una transición real observada.
 
 ## DECISIONES VIGENTES
 - SSOT = docs/HANDOFF.md en Git; Context es una copia que se re-sube tras cada cambio.
@@ -62,6 +57,5 @@ No diseñar todavía el método definitivo.
    el proyecto real (es recuperable, por lo que es recomendable pero opcional).
 
 ## SIGUIENTE ACCIÓN
-Comprobar que main contiene index.html (`git log --oneline -3`,
-`git rev-parse --short main`) y crear feat/pieza-2-boton-cambia-texto
+Comprobar que main contiene index.html (`git ls-files index.html`; esperado: `index.html`) y crear feat/pieza-2-boton-cambia-texto
 desde main; agregar el botón que cambie el texto del h1.
