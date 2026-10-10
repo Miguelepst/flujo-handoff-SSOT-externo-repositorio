@@ -22,6 +22,7 @@ pudo saber si la rama seguía en el remoto.
 
 **Cuándo.** Después de publicar main y comprobar la URL raw. Una vez por pieza.
 
+**Cómo.**
 ```powershell
 git ls-remote --heads origin feat/pieza-N-nombre
 git branch --merged main
