@@ -22,15 +22,15 @@ pudo saber si la rama seguía en el remoto.
 
 **Cuándo.** Después de publicar main y comprobar la URL raw. Una vez por pieza.
 
-**Cómo.**
 ```powershell
-git branch -vv
-git ls-remote --heads origin
+git ls-remote --heads origin feat/pieza-N-nombre
+git branch --merged main
 git branch -d feat/pieza-N-nombre
 git branch
 ```
-Esperado: la rama en local sin `[origin/...]`; `ls-remote` solo con
-`refs/heads/main`; `Deleted branch ... (was <hash>)`; la rama ya no aparece.
+Esperado: `ls-remote` sin salida (la rama no existe en el remoto); la rama
+aparece en `--merged main`; `Deleted branch ... (was <hash>)`; la rama ya no
+aparece en la lista final.
 
 **Si falla.** Con "not fully merged", detenerse y revisar. No usar `-D`.
 Si la rama sí está en el remoto, borrarla allí es otra decisión (comando
@@ -43,4 +43,5 @@ comprobable si la rama seguía en el remoto. Los datos previos (`git status -sb`
 sin seguimiento remoto; el único push fue a main) sugerían que no existía, pero
 no se había comprobado.
 
-**Estado.** Propuesta. Aún no probada: se completa tras la primera aplicación.
+**Estado.** Aplicada una vez (2026-10-09, pieza 1): ls-remote sin salida,
+rama fusionada, borrada con -d (era 44e3f10). Se actualiza tras la pieza 2.
