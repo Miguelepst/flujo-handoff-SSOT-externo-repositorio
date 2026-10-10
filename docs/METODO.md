@@ -47,6 +47,53 @@ no se había comprobado.
 **Estado.** Aplicada una vez (2026-10-09, pieza 1): ls-remote sin salida,
 rama fusionada, borrada con -d (era 44e3f10). Se actualiza tras la pieza 2.
 
+## P-02 Arranque de chat: comprobar el estado sin hash en el archivo
+
+**Qué.** Al abrir un chat, calcular H (el último commit que tocó docs/HANDOFF.md) y
+listar lo que hay en main después de H. Esperado: nada, o solo el merge de la pieza.
+
+**Por qué.** El HANDOFF no puede contener el hash del commit que lo guarda (se
+contendría a sí mismo), ni el del merge --no-ff (aún no existe). Un hash de main
+escrito en el archivo queda viejo con el primer commit de docs. Calcular H en el
+repo no requiere mantener ningún hash y funciona con cualquier tipo de fusión.
+
+**Cuándo.** Al abrir cualquier chat, con la pieza ya fusionada y publicada.
+
+**Cómo.** Bloque v1 (referencia versionada; el chat usa la copia pegada en Instructions, CONTINUIDAD, con la misma etiqueta):
+```powershell
+git fetch
+git status -sb
+$h = git log -1 --format=%h -- docs/HANDOFF.md
+$h
+git log --oneline "${h}..main"
+git show main:docs/HANDOFF.md | Select-String '^Actualizado'
+```
+Esperado: sin ahead/behind ni cambios; `$h` es un commit "docs: HANDOFF Rev N";
+log vacío o solo "Merge ..."; la línea Actualizado igual a la de Context.
+
+**Si falla.** Si `${h}..main` trae commits, `git diff --name-only $h main` y
+decidir con el usuario si afectan a lo descrito en ESTADO. Preguntar antes de actuar.
+
+**Límites.**
+- Todo cambio del HANDOFF sube el Rev; si no, H avanza y oculta un desfase previo.
+- Los commits de docs posteriores a H salen como ruido: el HANDOFF va en el último
+  commit de una tanda.
+- No detecta ediciones manuales con el mismo Rev ni valida el contenido.
+- Descartado como comprobación principal: `merge-base --is-ancestor <Base>`, porque
+  da 0 mientras main solo avance (detecta reescritura, no desfase).
+- El bloque también vive en Instructions, que están fuera de Git y no dejan rastro:
+  se cambia primero aquí y se copia con la misma etiqueta (v1, v2...). Si las
+  etiquetas difieren, manda la de este archivo.
+
+**Evidencia.** 2026-10-09, la Base sin hash obligó a juzgar por coherencia en tres
+arranques. Ninguna decisión resultó errónea, pero ninguna se apoyó en un dato:
+pieza 1 (el chat juzgó por coherencia); arranque con Rev 2 (esperaba main = f5d2b62,
+hash del estado, con main en 7c1e634; lo aceptó por razonamiento); y la consulta
+que originó P-02 (partió de la misma expectativa, f5d2b62). Misma causa en los tres.
+
+**Estado.** Propuesta. Bloque ejecutado una vez en main (2026-10-09, antes del
+Rev 3): salida como la esperada, sin merge real de por medio. Sin verificar con una
+pieza fusionada; se actualiza tras la pieza 2.
 
 ## Evidencia disponible (hasta 2026-10-09)
 - Observado en este proyecto: un chat nuevo leyó el HANDOFF desde Context y desde
