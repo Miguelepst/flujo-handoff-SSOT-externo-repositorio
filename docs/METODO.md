@@ -59,20 +59,22 @@ repo no requiere mantener ningún hash y funciona con cualquier tipo de fusión.
 
 **Cuándo.** Al abrir cualquier chat, con la pieza ya fusionada y publicada.
 
-**Cómo.** Bloque v1 (referencia versionada; el chat usa la copia pegada en Instructions, CONTINUIDAD, con la misma etiqueta):
+**Cómo.** Bloque v2 (referencia versionada; el chat usa la copia pegada en Instructions, CONTINUIDAD, con la misma etiqueta). Se entrega en un bloque de código, un comando por línea, tal como aquí; no en prosa con `;` (I-07):
 ```powershell
 git fetch
 git status -sb
-$h = git log -1 --format=%h -- docs/HANDOFF.md
+$h = git log -1 --format=%h main -- docs/HANDOFF.md
 $h
 git log --oneline "${h}..main"
+git diff --name-only $h main
 git show main:docs/HANDOFF.md | Select-String '^Actualizado'
 ```
-Esperado: sin ahead/behind ni cambios; `$h` es un commit "docs: HANDOFF Rev N";
-log vacío o solo "Merge ..."; la línea Actualizado igual a la de Context.
+Esperado: sin ahead/behind ni cambios; `$h` es un commit "docs: HANDOFF Rev N"; la línea Actualizado igual a la de Context. Según log y diff:
+- Log vacío, o solo "Merge ..." (en ambos, diff vacío; sin verificar): correcto.
+- Otros commits y el diff lista solo `docs/METODO.md` o `docs/INCIDENCIAS.md`: probable ruido. El chat lo dice, con los archivos, y pide un "ok" de una línea.
+- Cualquier otro archivo (`index.html`...) o duda: desfase. Preguntar antes de actuar.
 
-**Si falla.** Si `${h}..main` trae commits, `git diff --name-only $h main` y
-decidir con el usuario si afectan a lo descrito en ESTADO. Preguntar antes de actuar.
+**Si falla.** Si algo no coincide (ahead/behind, Actualizado distinto, o archivos fuera de la segunda salida), preguntar antes de actuar: el chat verifica y propone, decide el usuario. El chat solo ve lo que se pega, y aceptar un desfase es el error de I-03.
 
 **Límites.**
 - Todo cambio del HANDOFF sube el Rev; si no, H avanza y oculta un desfase previo.
@@ -84,16 +86,16 @@ decidir con el usuario si afectan a lo descrito en ESTADO. Preguntar antes de ac
 - El bloque también vive en Instructions, que están fuera de Git y no dejan rastro:
   se cambia primero aquí y se copia con la misma etiqueta (v1, v2...). Si las
   etiquetas difieren, manda la de este archivo.
+- Por ruta no basta: un commit de docs podría cambiar lo que ESTADO cita (p. ej. el estado de P-02). Por eso el "ok" del usuario; el HANDOFF en el último commit de una tanda evita casi todos estos casos.
 
 **Evidencia.** 2026-10-09, la Base sin hash obligó a juzgar por coherencia en tres
 arranques. Ninguna decisión resultó errónea, pero ninguna se apoyó en un dato:
 pieza 1 (el chat juzgó por coherencia); arranque con Rev 2 (esperaba main = f5d2b62,
 hash del estado, con main en 7c1e634; lo aceptó por razonamiento); y la consulta
 que originó P-02 (partió de la misma expectativa, f5d2b62). Misma causa en los tres.
+Tercera salida: en el arranque con Rev 5, el log traía 3b26ab1 (solo `docs/INCIDENCIAS.md`, 5 líneas). El chat de entonces lo verificó con `git show --stat` y lo resolvió por su cuenta. Observado una vez; relato del usuario, no consta en otros archivos. La regla v2 que pide el "ok" es decisión de diseño: este caso no demuestra que pedirlo sea necesario ni innecesario.
 
-**Estado.** Propuesta. Bloque ejecutado una vez en main (2026-10-09, antes del
-Rev 3): salida como la esperada, sin merge real de por medio. Sin verificar con una
-pieza fusionada; se actualiza tras la pieza 2.
+**Estado.** Propuesta. Bloque ejecutado en main varias veces (2026-10-09 y 2026-10-10): salida vacía y coincidente tras los Rev 4 y 6, y log de una línea (3b26ab1) tras el Rev 5. Sin verificar con una pieza fusionada; se actualiza tras la pieza 2. Bloque v2 redactado el 2026-10-10; pendiente de su primer arranque.
 
 ## Evidencia disponible (hasta 2026-10-09)
 - Observado en este proyecto: un chat nuevo leyó el HANDOFF desde Context y desde
