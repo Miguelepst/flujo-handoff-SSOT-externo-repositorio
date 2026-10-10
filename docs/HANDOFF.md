@@ -1,6 +1,6 @@
 # HANDOFF — Flujo de handoff con SSOT externo (fuente de verdad: este archivo, no el chat)
 
-Actualizado: 2026-10-10 01:10 (UTC-5) · Rev 4. Comprobación de arranque: Instructions y METODO.md P-02.
+Actualizado: 2026-10-10 01:43 (UTC-5) · Rev 5. Comprobación de arranque: Instructions y METODO.md P-02.
 
 ## CONTEXTO
 Proyecto en dos capas. (1) Experimento de referencia: app web mínima HTML + JS
@@ -8,6 +8,7 @@ puro para practicar el flujo handoff con SSOT en Git. Repo:
 https://github.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio
 URL raw HANDOFF: https://raw.githubusercontent.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio/main/docs/HANDOFF.md
 URL raw METODO: https://raw.githubusercontent.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio/main/docs/METODO.md
+URL raw INCIDENCIAS: https://raw.githubusercontent.com/Miguelepst/flujo-handoff-SSOT-externo-repositorio/main/docs/INCIDENCIAS.md
 (2) Terminado el experimento, este proyecto será el consejero del método: una
 duda por chat, con su aprendizaje incorporado al estado persistente.
 Meta de fondo: aplicar el método a proyectos largos, primero
@@ -46,7 +47,6 @@ No diseñar todavía el método definitivo.
 
 ## DEUDAS / PENDIENTES
 - Definir señales de alerta de chat pesado, a partir de casos observados.
-- Registro de incidencias del método (crearlo al tener 3 o más).
 - Verificar límites de Context y del lector de URL raw en este plan.
 
 ## PLAN
