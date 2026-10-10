@@ -1,6 +1,6 @@
 # HANDOFF — Flujo de handoff con SSOT externo (fuente de verdad: este archivo, no el chat)
 
-Actualizado: 2026-10-10 01:43 (UTC-5) · Rev 5. Comprobación de arranque: Instructions y METODO.md P-02.
+Actualizado: 2026-10-10 09:51 (UTC-5) · Rev 6. Comprobación de arranque: Instructions y METODO.md P-02.
 
 ## CONTEXTO
 Proyecto en dos capas. (1) Experimento de referencia: app web mínima HTML + JS
@@ -48,6 +48,9 @@ No diseñar todavía el método definitivo.
 ## DEUDAS / PENDIENTES
 - Definir señales de alerta de chat pesado, a partir de casos observados.
 - Verificar límites de Context y del lector de URL raw en este plan.
+- Bloque v2 (cierra I-07): líneas separadas y 3.ª salida del criterio (commits que no tocan HANDOFF/ESTADO).
+- Decidir versionado de prácticas (historial v1→v2) y qué hacer con chats cerrados.
+- Candidata I-09: duplicado por instrucciones solapadas; registrar con la pieza 2.
 
 ## PLAN
 1. Pieza 2 (botón) y pieza 3 (contador), cada una en un chat nuevo.
