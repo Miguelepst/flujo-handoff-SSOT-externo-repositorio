@@ -62,3 +62,8 @@ Campos: qué pasó / causa / detección / respuesta / estado.
 - Respuesta: ninguna todavía; opción v2, primero en METODO.md y luego en las
   Instructions con la misma etiqueta.
 - Estado: abierta.
+
+## I-08 2026-10-10 Corrección de la causa de I-02
+- El usuario confirma que la ruta era un hábito suyo de encabezado, no un origen
+  desconocido. La causa de I-02 queda como hábito del usuario, propagado por el chat.
+- Estado: cerrada.
