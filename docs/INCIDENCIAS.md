@@ -67,3 +67,10 @@ Campos: qué pasó / causa / detección / respuesta / estado.
 - El usuario confirma que la ruta era un hábito suyo de encabezado, no un origen
   desconocido. La causa de I-02 queda como hábito del usuario, propagado por el chat.
 - Estado: cerrada.
+
+## I-09 2026-10-10 Bloque de arranque v2 (respuesta a I-07) y corrección de su efecto
+- Qué pasó: el bloque de arranque se entregó otra vez en una sola línea con ;, en el chat que trató la deuda del bloque v2. Observada dos veces (I-07 y este chat).
+- Causa: la de I-07 (Instructions con el bloque en prosa; METODO.md ya lo tenía en líneas). Coherente con las dos ocurrencias; no aislada con una prueba.
+- Corrección a I-07: el efecto "con ; un fallo intermedio no detiene los siguientes" se mantiene con líneas separadas (no probado aquí). v2 gana legibilidad y permite ir línea a línea; no protege ante fallos.
+- Respuesta: P-02 pasa a v2 (entrega en un bloque de código, un comando por línea) y las Instructions sustituyen la prosa por el bloque, con la etiqueta v2.
+- Estado: aplicada (v2 redactado y pegado en Instructions). I-07 se da por cerrada tras el primer arranque con v2, si las Instructions conservan los saltos de línea.
