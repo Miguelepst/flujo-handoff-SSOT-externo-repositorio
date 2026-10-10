@@ -1,6 +1,6 @@
 # HANDOFF — Flujo de handoff con SSOT externo (fuente de verdad: este archivo, no el chat)
 
-Actualizado: 2026-10-09 00:30 (UTC-5) · Rev 3. Comprobación de arranque: Instructions y METODO.md P-02.
+Actualizado: 2026-10-10 01:10 (UTC-5) · Rev 4. Comprobación de arranque: Instructions y METODO.md P-02.
 
 ## CONTEXTO
 Proyecto en dos capas. (1) Experimento de referencia: app web mínima HTML + JS
